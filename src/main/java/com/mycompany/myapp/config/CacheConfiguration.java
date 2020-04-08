@@ -42,6 +42,16 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.ContactProjet.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ContactTechnique.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Demandeur.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Flux.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Flux.class.getName() + ".demiFluxes");
+            createCache(cm, com.mycompany.myapp.domain.DemiFlux.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DemiFlux.class.getName() + ".routages");
+            createCache(cm, com.mycompany.myapp.domain.SFTP.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PESIT.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ROUTAGE.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

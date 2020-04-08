@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pESIT">
+            <h2><span jhiTranslate="appApp.pESIT.detail.title">PESIT</span> {{ pESIT.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.pESIT.codeSite">Code Site</span></dt>
+                <dd>
+                    <span>{{ pESIT.codeSite }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pESIT.codeApplication">Code Application</span></dt>
+                <dd>
+                    <span>{{ pESIT.codeApplication }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pESIT.transcoding">Transcoding</span></dt>
+                <dd>
+                    <span>{{ pESIT.transcoding }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pESIT.compression">Compression</span></dt>
+                <dd>
+                    <span>{{ pESIT.compression }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pesit', pESIT.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

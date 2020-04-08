@@ -1,0 +1,113 @@
+{
+    "name": "DemiFlux",
+    "fields": [
+        {
+            "fieldName": "appliname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "partenairelocal",
+            "fieldType": "FHU",
+            "fieldValues": "FHU1,FHU2"
+        },
+        {
+            "fieldName": "partenairedistant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "directory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "filename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mode",
+            "fieldType": "Mode",
+            "fieldValues": "PUSH,PULL"
+        },
+        {
+            "fieldName": "typology",
+            "fieldType": "Type",
+            "fieldValues": "IN,OUT"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hostname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "port",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "contactProjet",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipName": "contactProjet",
+            "otherEntityField": "nameCP",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "contactTechnique",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipName": "contactTechnique",
+            "otherEntityField": "nameCT",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pESIT",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipName": "pESIT",
+            "otherEntityField": "codeSite",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "sFTP",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipName": "sFTP",
+            "otherEntityField": "user",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "rOUTAGE",
+            "otherEntityRelationshipName": "demiflux",
+            "relationshipName": "routage"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "demandeur",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipValidateRules": "required",
+            "relationshipName": "demandeur",
+            "otherEntityField": "nameD"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "flux",
+            "otherEntityRelationshipName": "demiFlux",
+            "relationshipName": "flux",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200330165800",
+    "entityTableName": "demi_flux",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

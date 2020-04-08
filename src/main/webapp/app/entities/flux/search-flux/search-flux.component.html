@@ -1,0 +1,117 @@
+<div style="margin: auto; width: 50%; border: 3px solid royalblue; padding: 10px;">
+	
+	<label  >Choose codeMega</label>
+	
+	
+    <select  [(ngModel)]="FluxSelected" (ngModelChange)='onFluxSelected($event)'  >
+      
+      <option *ngFor="let flux of fluxes" [value]="flux.id" >
+        
+       {{flux.codeMega}}
+      
+
+
+      </option>
+      
+    
+
+
+    
+	
+	
+    <input  [(ngModel)]="FluxSelected" (ngModelChange)='onDemiFluxSelected($event)'  >
+      
+  </select>
+
+  
+    
+  </div>
+<div>
+<table style="border-collapse: collapse;
+border: 2px solid rgb(200, 200, 200);
+letter-spacing: 1px;
+font-family: sans-serif;
+font-size: .8rem;">
+
+<thead style=" background-color: #3f87a6;
+color: rgb(107, 56, 56);">
+<tr>
+  <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  > environement</th>
+</tr>
+</thead>  
+<tr>
+  <tbody style="background-color: #e4f0f5;">
+    
+  <tr *ngFor="let demi of flu" >
+    <td style="border: 1px solid rgb(190, 190, 190);
+      padding: 5px ;text-align: center;"  >{{demi.envir}}</td>
+  
+  </tr>
+      </tbody>
+
+
+</table>
+
+</div>
+
+<div>
+  <table style="border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: .8rem;">
+  <thead style=" background-color: #3f87a6;
+  color: rgb(107, 56, 56);">
+
+
+  <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >appliname</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >partenairelocal</th>
+  
+  <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >directory</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >filename</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >mode</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >typology</th>
+  <th style="border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;"  >type</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >hostname</th>
+   <th style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px 10px;"  >port</th>
+   </tr>
+  </thead>
+
+  <tbody style="background-color: #e4f0f5;">
+    <tr *ngFor="let demi of flu[0].demiFluxes" >
+
+      <td style="border: 1px solid rgb(190, 190, 190);
+      padding: 5px ;text-align: center;"  >{{demi.appliname}}</td>
+ <td style="border: 1px solid rgb(190, 190, 190);
+ padding: 5px ;text-align: center;"  >{{demi.partenairedistant}}</td>
+ 
+ <td style="border: 1px solid rgb(190, 190, 190);
+      padding: 5px ;text-align: center;"  >{{demi.directory}}</td>
+ <td style="border: 1px solid rgb(190, 190, 190);
+ padding: 5px ;text-align: center;"  >{{demi.filename}}</td>
+   <td style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px ;text-align: center;"  >{{demi.mode}}</td>
+   <td style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px ;text-align: center;"  >{{demi.typology}}</td>
+   <td style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px ;text-align: center;"  >{{demi.type}}</td>
+   <td style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px ;text-align: center;"  >{{demi.hostname}}</td>
+   <td style="border: 1px solid rgb(190, 190, 190);
+   padding: 5px ;text-align: center;"  >{{demi.port}}</td>
+   
+ </tr>
+</tbody>
+    </table>
+
+  </div>

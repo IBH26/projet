@@ -14,6 +14,16 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165400_added_entity_ContactProjet.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165500_added_entity_ContactTechnique.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165600_added_entity_Demandeur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165700_added_entity_Flux.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165800_added_entity_DemiFlux.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330165900_added_entity_SFTP.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330170000_added_entity_PESIT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330170100_added_entity_ROUTAGE.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200330165800_added_entity_constraints_DemiFlux.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200330170100_added_entity_constraints_ROUTAGE.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

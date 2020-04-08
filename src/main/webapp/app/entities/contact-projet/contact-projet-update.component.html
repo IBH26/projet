@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-contact-projet-heading" jhiTranslate="appApp.contactProjet.home.createOrEditLabel">Create or edit a Contact Projet</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.contactProjet.nameCP" for="field_nameCP">Name CP</label>
+                    <input type="text" class="form-control" name="nameCP" id="field_nameCP"
+                           formControlName="nameCP"/>
+                    <div *ngIf="editForm.get('nameCP')!.invalid && (editForm.get('nameCP')!.dirty || editForm.get('nameCP')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameCP')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.contactProjet.functionCP" for="field_functionCP">Function CP</label>
+                    <input type="text" class="form-control" name="functionCP" id="field_functionCP"
+                           formControlName="functionCP"/>
+                    <div *ngIf="editForm.get('functionCP')!.invalid && (editForm.get('functionCP')!.dirty || editForm.get('functionCP')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('functionCP')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.contactProjet.phoneNumberCP" for="field_phoneNumberCP">Phone Number CP</label>
+                    <input type="text" class="form-control" name="phoneNumberCP" id="field_phoneNumberCP"
+                           formControlName="phoneNumberCP"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.contactProjet.emailCP" for="field_emailCP">Email CP</label>
+                    <input type="text" class="form-control" name="emailCP" id="field_emailCP"
+                           formControlName="emailCP"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

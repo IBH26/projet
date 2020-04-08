@@ -1,0 +1,32 @@
+{
+    "name": "PESIT",
+    "fields": [
+        {
+            "fieldName": "codeSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeApplication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transcoding",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "compression",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200330170000",
+    "entityTableName": "pesit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

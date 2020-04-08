@@ -1,0 +1,125 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="appApp.demiFlux.home.title">Demi Fluxes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-demi-flux" [routerLink]="['/demi-flux/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="appApp.demiFlux.home.createLabel">
+            Create a new Demi Flux
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="demiFluxes?.length === 0">
+        <span jhiTranslate="appApp.demiFlux.home.notFound">No demiFluxes found</span>
+    </div>
+
+<div class="table-responsive" id="entities" *ngIf="demiFluxes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="appliname"><span jhiTranslate="appApp.demiFlux.appliname">Appliname</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partenairelocal"><span jhiTranslate="appApp.demiFlux.partenairelocal">Partenairelocal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partenairedistant"><span jhiTranslate="appApp.demiFlux.partenairedistant">Partenairedistant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="directory"><span jhiTranslate="appApp.demiFlux.directory">Directory</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="filename"><span jhiTranslate="appApp.demiFlux.filename">Filename</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mode"><span jhiTranslate="appApp.demiFlux.mode">Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typology"><span jhiTranslate="appApp.demiFlux.typology">Typology</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="appApp.demiFlux.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="hostname"><span jhiTranslate="appApp.demiFlux.hostname">Hostname</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="port"><span jhiTranslate="appApp.demiFlux.port">Port</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactProjet.nameCP"><span jhiTranslate="appApp.demiFlux.contactProjet">Contact Projet</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactTechnique.nameCT"><span jhiTranslate="appApp.demiFlux.contactTechnique">Contact Technique</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pESIT.codeSite"><span jhiTranslate="appApp.demiFlux.pESIT">P ESIT</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sFTP.user"><span jhiTranslate="appApp.demiFlux.sFTP">S FTP</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="demandeur.nameD"><span jhiTranslate="appApp.demiFlux.demandeur">Demandeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="flux.id"><span jhiTranslate="appApp.demiFlux.flux">Flux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let demiFlux of demiFluxes ;trackBy: trackId">
+                    <td><a [routerLink]="['/demi-flux', demiFlux.id, 'view']">{{ demiFlux.id }}</a></td>
+                    <td>{{ demiFlux.appliname }}</td>
+                    <td jhiTranslate="{{ 'appApp.FHU.' + demiFlux.partenairelocal }}">{{ demiFlux.partenairelocal }}</td>
+                    <td>{{ demiFlux.partenairedistant }}</td>
+                    <td>{{ demiFlux.directory }}</td>
+                    <td>{{ demiFlux.filename }}</td>
+                    <td jhiTranslate="{{ 'appApp.Mode.' + demiFlux.mode }}">{{ demiFlux.mode }}</td>
+                    <td jhiTranslate="{{ 'appApp.Type.' + demiFlux.typology }}">{{ demiFlux.typology }}</td>
+                    <td>{{ demiFlux.type }}</td>
+                    <td>{{ demiFlux.hostname }}</td>
+                    <td>{{ demiFlux.port }}</td>
+                    <td>
+                        <div *ngIf="demiFlux.contactProjet">
+                            <a [routerLink]="['/contact-projet', demiFlux.contactProjet?.id, 'view']" >{{ demiFlux.contactProjet?.nameCP }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="demiFlux.contactTechnique">
+                            <a [routerLink]="['/contact-technique', demiFlux.contactTechnique?.id, 'view']" >{{ demiFlux.contactTechnique?.nameCT }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="demiFlux.pESIT">
+                            <a [routerLink]="['/pesit', demiFlux.pESIT?.id, 'view']" >{{ demiFlux.pESIT?.codeSite }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="demiFlux.sFTP">
+                            <a [routerLink]="['/sftp', demiFlux.sFTP?.id, 'view']" >{{ demiFlux.sFTP?.user }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="demiFlux.demandeur">
+                            <a [routerLink]="['/demandeur', demiFlux.demandeur?.id, 'view']" >{{ demiFlux.demandeur?.nameD }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="demiFlux.flux">
+                            <a [routerLink]="['/flux', demiFlux.flux?.id, 'view']" >{{ demiFlux.flux?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/demi-flux', demiFlux.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/demi-flux', demiFlux.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(demiFlux)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="demiFluxes?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

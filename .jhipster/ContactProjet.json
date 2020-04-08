@@ -1,0 +1,38 @@
+{
+    "name": "ContactProjet",
+    "fields": [
+        {
+            "fieldName": "nameCP",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "functionCP",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "phoneNumberCP",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailCP",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200330165400",
+    "entityTableName": "contact_projet",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

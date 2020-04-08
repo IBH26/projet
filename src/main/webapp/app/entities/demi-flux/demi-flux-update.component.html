@@ -1,0 +1,146 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-demi-flux-heading" jhiTranslate="appApp.demiFlux.home.createOrEditLabel">Create or edit a Demi Flux</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.appliname" for="field_appliname">Appliname</label>
+                    <input type="text" class="form-control" name="appliname" id="field_appliname"
+                           formControlName="appliname"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.partenairelocal" for="field_partenairelocal">Partenairelocal</label>
+                    <select class="form-control" name="partenairelocal" formControlName="partenairelocal" id="field_partenairelocal">
+                        <option value="FHU1">{{ 'appApp.FHU.FHU1' | translate }}</option>
+                        <option value="FHU2">{{ 'appApp.FHU.FHU2' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.partenairedistant" for="field_partenairedistant">Partenairedistant</label>
+                    <input type="text" class="form-control" name="partenairedistant" id="field_partenairedistant"
+                           formControlName="partenairedistant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.directory" for="field_directory">Directory</label>
+                    <input type="text" class="form-control" name="directory" id="field_directory"
+                           formControlName="directory"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.filename" for="field_filename">Filename</label>
+                    <input type="text" class="form-control" name="filename" id="field_filename"
+                           formControlName="filename"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.mode" for="field_mode">Mode</label>
+                    <select class="form-control" name="mode" formControlName="mode" id="field_mode">
+                        <option value="PUSH">{{ 'appApp.Mode.PUSH' | translate }}</option>
+                        <option value="PULL">{{ 'appApp.Mode.PULL' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.typology" for="field_typology">Typology</label>
+                    <select class="form-control" name="typology" formControlName="typology" id="field_typology">
+                        <option value="IN">{{ 'appApp.Type.IN' | translate }}</option>
+                        <option value="OUT">{{ 'appApp.Type.OUT' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.hostname" for="field_hostname">Hostname</label>
+                    <input type="text" class="form-control" name="hostname" id="field_hostname"
+                           formControlName="hostname"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.port" for="field_port">Port</label>
+                    <input type="number" class="form-control" name="port" id="field_port"
+                           formControlName="port"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.contactProjet" for="field_contactProjet">Contact Projet</label>
+                    <select class="form-control" id="field_contactProjet" name="contactProjet" formControlName="contactProjet">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactProjetOption.id === editForm.get('contactProjet')!.value?.id ? editForm.get('contactProjet')!.value : contactProjetOption" *ngFor="let contactProjetOption of contactprojets; trackBy: trackById">{{ contactProjetOption.nameCP }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.contactTechnique" for="field_contactTechnique">Contact Technique</label>
+                    <select class="form-control" id="field_contactTechnique" name="contactTechnique" formControlName="contactTechnique">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactTechniqueOption.id === editForm.get('contactTechnique')!.value?.id ? editForm.get('contactTechnique')!.value : contactTechniqueOption" *ngFor="let contactTechniqueOption of contacttechniques; trackBy: trackById">{{ contactTechniqueOption.nameCT }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.pESIT" for="field_pESIT">P ESIT</label>
+                    <select class="form-control" id="field_pESIT" name="pESIT" formControlName="pESIT">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pESITOption.id === editForm.get('pESIT')!.value?.id ? editForm.get('pESIT')!.value : pESITOption" *ngFor="let pESITOption of pesits; trackBy: trackById">{{ pESITOption.codeSite }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.sFTP" for="field_sFTP">S FTP</label>
+                    <select class="form-control" id="field_sFTP" name="sFTP" formControlName="sFTP">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sFTPOption.id === editForm.get('sFTP')!.value?.id ? editForm.get('sFTP')!.value : sFTPOption" *ngFor="let sFTPOption of sftps; trackBy: trackById">{{ sFTPOption.user }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.demandeur" for="field_demandeur">Demandeur</label>
+                    <select class="form-control" id="field_demandeur" name="demandeur" formControlName="demandeur">
+                        <option *ngIf="!editForm.get('demandeur')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="demandeurOption.id === editForm.get('demandeur')!.value?.id ? editForm.get('demandeur')!.value : demandeurOption" *ngFor="let demandeurOption of demandeurs; trackBy: trackById">{{ demandeurOption.nameD }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('demandeur')!.invalid && (editForm.get('demandeur')!.dirty || editForm.get('demandeur')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('demandeur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.demiFlux.flux" for="field_flux">Flux</label>
+                    <select class="form-control" id="field_flux" name="flux" formControlName="flux">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fluxOption.id === editForm.get('flux')!.value?.id ? editForm.get('flux')!.value : fluxOption" *ngFor="let fluxOption of fluxes; trackBy: trackById">{{ fluxOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

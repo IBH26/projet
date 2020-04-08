@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-routage-heading" jhiTranslate="appApp.rOUTAGE.home.createOrEditLabel">Create or edit a ROUTAGE</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.drName" for="field_drName">Dr Name</label>
+                    <input type="text" class="form-control" name="drName" id="field_drName"
+                           formControlName="drName"/>
+                    <div *ngIf="editForm.get('drName')!.invalid && (editForm.get('drName')!.dirty || editForm.get('drName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('drName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.rename" for="field_rename">Rename</label>
+                    <input type="checkbox" class="form-control" name="rename" id="field_rename"
+                           formControlName="rename"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.maskFile" for="field_maskFile">Mask File</label>
+                    <input type="text" class="form-control" name="maskFile" id="field_maskFile"
+                           formControlName="maskFile"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.directory" for="field_directory">Directory</label>
+                    <input type="text" class="form-control" name="directory" id="field_directory"
+                           formControlName="directory"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.handlingtype" for="field_handlingtype">Handlingtype</label>
+                    <input type="text" class="form-control" name="handlingtype" id="field_handlingtype"
+                           formControlName="handlingtype"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.rOUTAGE.demiflux" for="field_demiflux">Demiflux</label>
+                    <select class="form-control" id="field_demiflux" name="demiflux" formControlName="demiflux">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="demiFluxOption.id === editForm.get('demiflux')!.value?.id ? editForm.get('demiflux')!.value : demiFluxOption" *ngFor="let demiFluxOption of demifluxes; trackBy: trackById">{{ demiFluxOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

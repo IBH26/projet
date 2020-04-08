@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="demandeur">
+            <h2><span jhiTranslate="appApp.demandeur.detail.title">Demandeur</span> {{ demandeur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.demandeur.nameD">Name D</span></dt>
+                <dd>
+                    <span>{{ demandeur.nameD }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demandeur.functionD">Function D</span></dt>
+                <dd>
+                    <span>{{ demandeur.functionD }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demandeur.projectD">Project D</span></dt>
+                <dd>
+                    <span>{{ demandeur.projectD }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/demandeur', demandeur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="demiFlux">
+            <h2><span jhiTranslate="appApp.demiFlux.detail.title">Demi Flux</span> {{ demiFlux.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.demiFlux.appliname">Appliname</span></dt>
+                <dd>
+                    <span>{{ demiFlux.appliname }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.partenairelocal">Partenairelocal</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'appApp.FHU.' + demiFlux.partenairelocal }}">{{ demiFlux.partenairelocal }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.partenairedistant">Partenairedistant</span></dt>
+                <dd>
+                    <span>{{ demiFlux.partenairedistant }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.directory">Directory</span></dt>
+                <dd>
+                    <span>{{ demiFlux.directory }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.filename">Filename</span></dt>
+                <dd>
+                    <span>{{ demiFlux.filename }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.mode">Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'appApp.Mode.' + demiFlux.mode }}">{{ demiFlux.mode }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.typology">Typology</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'appApp.Type.' + demiFlux.typology }}">{{ demiFlux.typology }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.type">Type</span></dt>
+                <dd>
+                    <span>{{ demiFlux.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.hostname">Hostname</span></dt>
+                <dd>
+                    <span>{{ demiFlux.hostname }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.port">Port</span></dt>
+                <dd>
+                    <span>{{ demiFlux.port }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.contactProjet">Contact Projet</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.contactProjet">
+                        <a [routerLink]="['/contact-projet', demiFlux.contactProjet?.id, 'view']">{{ demiFlux.contactProjet?.nameCP }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.contactTechnique">Contact Technique</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.contactTechnique">
+                        <a [routerLink]="['/contact-technique', demiFlux.contactTechnique?.id, 'view']">{{ demiFlux.contactTechnique?.nameCT }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.pESIT">P ESIT</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.pESIT">
+                        <a [routerLink]="['/pesit', demiFlux.pESIT?.id, 'view']">{{ demiFlux.pESIT?.codeSite }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.sFTP">S FTP</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.sFTP">
+                        <a [routerLink]="['/sftp', demiFlux.sFTP?.id, 'view']">{{ demiFlux.sFTP?.user }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.demandeur">Demandeur</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.demandeur">
+                        <a [routerLink]="['/demandeur', demiFlux.demandeur?.id, 'view']">{{ demiFlux.demandeur?.nameD }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.demiFlux.flux">Flux</span></dt>
+                <dd>
+                    <div *ngIf="demiFlux.flux">
+                        <a [routerLink]="['/flux', demiFlux.flux?.id, 'view']">{{ demiFlux.flux?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/demi-flux', demiFlux.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

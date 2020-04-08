@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity DemiFlux.
+    -->
+    <changeSet id="20200330165800-1" author="jhipster">
+        <createTable tableName="demi_flux">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="appliname" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="partenairelocal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="partenairedistant" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="directory" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="filename" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="mode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="typology" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hostname" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="port" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="contact_projet_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_demi_flux_contact_projet_id" />
+            </column>
+            <column name="contact_technique_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_demi_flux_contact_technique_id" />
+            </column>
+            <column name="pesit_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_demi_flux_pesit_id" />
+            </column>
+            <column name="sftp_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_demi_flux_sftp_id" />
+            </column>
+            <column name="demandeur_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="flux_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200330165800-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200330165800-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/demi_flux.csv"
+                  separator=";"
+                  tableName="demi_flux">
+            <column name="id" type="numeric"/>
+            <column name="appliname" type="string"/>
+            <column name="partenairelocal" type="string"/>
+            <column name="partenairedistant" type="string"/>
+            <column name="directory" type="string"/>
+            <column name="filename" type="string"/>
+            <column name="mode" type="string"/>
+            <column name="typology" type="string"/>
+            <column name="type" type="string"/>
+            <column name="hostname" type="string"/>
+            <column name="port" type="numeric"/>
+            <column name="demandeur_id" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

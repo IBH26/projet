@@ -1,0 +1,9 @@
+{
+  "appApp": {
+    "Mode": {
+      "null": "",
+      "PUSH": "PUSH",
+      "PULL": "PULL"
+    }
+  }
+}

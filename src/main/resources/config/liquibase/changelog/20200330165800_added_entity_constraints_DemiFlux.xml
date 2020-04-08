@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DemiFlux.
+    -->
+    <changeSet id="20200330165800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="contact_projet_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_contact_projet_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_projet"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_technique_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_contact_technique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_technique"/>
+
+        <addForeignKeyConstraint baseColumnNames="pesit_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_pesit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pesit"/>
+
+        <addForeignKeyConstraint baseColumnNames="sftp_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_sftp_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sftp"/>
+
+        <addForeignKeyConstraint baseColumnNames="demandeur_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_demandeur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="demandeur"/>
+
+        <addForeignKeyConstraint baseColumnNames="flux_id"
+                                 baseTableName="demi_flux"
+                                 constraintName="fk_demi_flux_flux_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux"/>
+
+    </changeSet>
+</databaseChangeLog>

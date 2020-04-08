@@ -1,0 +1,25 @@
+{
+  "appApp": {
+    "pESIT": {
+      "home": {
+        "title": "PESITS",
+        "createLabel": "Create a new PESIT",
+        "createOrEditLabel": "Create or edit a PESIT",
+        "notFound": "No PESITS found"
+      },
+      "created": "A new PESIT is created with identifier {{ param }}",
+      "updated": "A PESIT is updated with identifier {{ param }}",
+      "deleted": "A PESIT is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete PESIT {{ id }}?"
+      },
+      "detail": {
+        "title": "PESIT"
+      },
+      "codeSite": "Code Site",
+      "codeApplication": "Code Application",
+      "transcoding": "Transcoding",
+      "compression": "Compression"
+    }
+  }
+}

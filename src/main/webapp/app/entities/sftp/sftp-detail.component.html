@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sFTP">
+            <h2><span jhiTranslate="appApp.sFTP.detail.title">SFTP</span> {{ sFTP.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.sFTP.formatTransfer">Format Transfer</span></dt>
+                <dd>
+                    <span>{{ sFTP.formatTransfer }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.sFTP.user">User</span></dt>
+                <dd>
+                    <span>{{ sFTP.user }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.sFTP.key">Key</span></dt>
+                <dd>
+                    <span>{{ sFTP.key }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sftp', sFTP.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

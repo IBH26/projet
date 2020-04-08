@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contactProjet">
+            <h2><span jhiTranslate="appApp.contactProjet.detail.title">Contact Projet</span> {{ contactProjet.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.contactProjet.nameCP">Name CP</span></dt>
+                <dd>
+                    <span>{{ contactProjet.nameCP }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.contactProjet.functionCP">Function CP</span></dt>
+                <dd>
+                    <span>{{ contactProjet.functionCP }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.contactProjet.phoneNumberCP">Phone Number CP</span></dt>
+                <dd>
+                    <span>{{ contactProjet.phoneNumberCP }}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.contactProjet.emailCP">Email CP</span></dt>
+                <dd>
+                    <span>{{ contactProjet.emailCP }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contact-projet', contactProjet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

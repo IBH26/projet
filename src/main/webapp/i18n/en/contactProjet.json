@@ -1,0 +1,25 @@
+{
+  "appApp": {
+    "contactProjet": {
+      "home": {
+        "title": "Contact Projets",
+        "createLabel": "Create a new Contact Projet",
+        "createOrEditLabel": "Create or edit a Contact Projet",
+        "notFound": "No Contact Projets found"
+      },
+      "created": "A new Contact Projet is created with identifier {{ param }}",
+      "updated": "A Contact Projet is updated with identifier {{ param }}",
+      "deleted": "A Contact Projet is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Projet {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Projet"
+      },
+      "nameCP": "Name CP",
+      "functionCP": "Function CP",
+      "phoneNumberCP": "Phone Number CP",
+      "emailCP": "Email CP"
+    }
+  }
+}

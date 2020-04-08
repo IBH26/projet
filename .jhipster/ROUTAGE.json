@@ -1,0 +1,47 @@
+{
+    "name": "ROUTAGE",
+    "fields": [
+        {
+            "fieldName": "drName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rename",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "maskFile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "directory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "handlingtype",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "demiFlux",
+            "otherEntityRelationshipName": "routage",
+            "relationshipName": "demiflux",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200330170100",
+    "entityTableName": "routage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

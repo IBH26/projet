@@ -1,0 +1,38 @@
+{
+    "name": "ContactTechnique",
+    "fields": [
+        {
+            "fieldName": "nameCT",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "functionCT",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "phoneNumberCT",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailCT",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200330165500",
+    "entityTableName": "contact_technique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

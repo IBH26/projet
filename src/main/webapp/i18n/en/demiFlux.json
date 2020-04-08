@@ -1,0 +1,38 @@
+{
+  "appApp": {
+    "demiFlux": {
+      "home": {
+        "title": "Demi Fluxes",
+        "createLabel": "Create a new Demi Flux",
+        "createOrEditLabel": "Create or edit a Demi Flux",
+        "notFound": "No Demi Fluxes found"
+      },
+      "created": "A new Demi Flux is created with identifier {{ param }}",
+      "updated": "A Demi Flux is updated with identifier {{ param }}",
+      "deleted": "A Demi Flux is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Demi Flux {{ id }}?"
+      },
+      "detail": {
+        "title": "Demi Flux"
+      },
+      "appliname": "Appliname",
+      "partenairelocal": "Partenairelocal",
+      "partenairedistant": "Partenairedistant",
+      "directory": "Directory",
+      "filename": "Filename",
+      "mode": "Mode",
+      "typology": "Typology",
+      "type": "Type",
+      "hostname": "Hostname",
+      "port": "Port",
+      "contactProjet": "Contact Projet",
+      "contactTechnique": "Contact Technique",
+      "pESIT": "P ESIT",
+      "sFTP": "S FTP",
+      "routage": "Routage",
+      "demandeur": "Demandeur",
+      "flux": "Flux"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "appApp": {
+    "rOUTAGE": {
+      "home": {
+        "title": "ROUTAGES",
+        "createLabel": "Create a new ROUTAGE",
+        "createOrEditLabel": "Create or edit a ROUTAGE",
+        "notFound": "No ROUTAGES found"
+      },
+      "created": "A new ROUTAGE is created with identifier {{ param }}",
+      "updated": "A ROUTAGE is updated with identifier {{ param }}",
+      "deleted": "A ROUTAGE is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete ROUTAGE {{ id }}?"
+      },
+      "detail": {
+        "title": "ROUTAGE"
+      },
+      "drName": "Dr Name",
+      "rename": "Rename",
+      "maskFile": "Mask File",
+      "directory": "Directory",
+      "handlingtype": "Handlingtype",
+      "demiflux": "Demiflux"
+    }
+  }
+}

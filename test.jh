@@ -1,0 +1,135 @@
+entity ContactProjet {
+	
+    NameCP String required,
+	functionCP String required,
+	phoneNumberCP String ,
+	emailCP String
+}
+
+entity ContactTechnique
+{
+	NameCT String required,
+	
+	functionCT String required,
+	phoneNumberCT String ,
+	emailCT String
+}
+
+
+entity Demandeur {
+	NameD String required,
+	
+	functionD String required,
+	projectD String
+}
+
+entity Flux {
+	codeMega  String required,
+	envir Env
+    
+}
+
+entity DemiFlux {
+   appliname String,
+   partenairelocal FHU,
+   partenairedistant String,
+   directory String,
+   filename String,
+   mode Mode,
+   typology Type,
+   type String
+   hostname String,
+  port Integer
+   
+}
+
+
+
+entity SFTP{
+  formatTransfer String,
+  user String,
+  key String  
+}
+entity PESIT{
+  codeSite String,
+  codeApplication String,
+  transcoding String,
+  compression String
+  }
+  
+entity ROUTAGE {
+ DrName String required,
+ rename Boolean,
+ maskFile String,
+ directory String,
+ handlingtype String
+ 
+}
+
+enum FHU {
+
+    FHU1, FHU2
+}
+
+enum Mode {
+
+    PUSH, PULL
+}
+
+enum Type {
+    IN, OUT
+}
+
+
+enum Env {
+    RECETTE, PPRD, PRD
+}
+
+
+
+relationship OneToOne {
+	DemiFlux {contactProjet(NameCP)} to ContactProjet
+}
+
+relationship OneToOne {
+	DemiFlux {contactTechnique(NameCT)} to ContactTechnique
+}
+relationship OneToMany {
+     
+      
+      Flux to DemiFlux
+     
+}
+
+
+
+relationship ManyToOne {
+DemiFlux {demandeur(NameD) required} to Demandeur
+
+}
+
+relationship OneToMany {
+DemiFlux{routage(DrName)} to ROUTAGE{demiflux}
+}
+
+relationship OneToOne {
+
+DemiFlux{PESIT(codeSite)} to PESIT
+DemiFlux{SFTP(user)} to SFTP 
+}
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate DemiFlux with pagination
+
+filter DemiFlux
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+
+filter *

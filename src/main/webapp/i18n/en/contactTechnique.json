@@ -1,0 +1,25 @@
+{
+  "appApp": {
+    "contactTechnique": {
+      "home": {
+        "title": "Contact Techniques",
+        "createLabel": "Create a new Contact Technique",
+        "createOrEditLabel": "Create or edit a Contact Technique",
+        "notFound": "No Contact Techniques found"
+      },
+      "created": "A new Contact Technique is created with identifier {{ param }}",
+      "updated": "A Contact Technique is updated with identifier {{ param }}",
+      "deleted": "A Contact Technique is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Technique {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Technique"
+      },
+      "nameCT": "Name CT",
+      "functionCT": "Function CT",
+      "phoneNumberCT": "Phone Number CT",
+      "emailCT": "Email CT"
+    }
+  }
+}
